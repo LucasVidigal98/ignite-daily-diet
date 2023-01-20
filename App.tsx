@@ -1,4 +1,5 @@
 import { useFonts, Nunito_400Regular, Nunito_700Bold } from '@expo-google-fonts/nunito';
+import { ConfirmScreen } from '@screens/CofirmScreen';
 import { DietForm } from '@screens/DietForm';
 import { Home } from '@screens/Home';
 import { Statistics } from '@screens/Statistics';
@@ -16,7 +17,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {fontsLoaded ? <DietForm /> : <View />}
+      {fontsLoaded ? <ConfirmScreen /> : <View />}
     </ThemeProvider>
   );
 }

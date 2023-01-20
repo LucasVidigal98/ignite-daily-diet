@@ -29,6 +29,7 @@ export const Title = styled.Text<Props>`
     font-size: ${theme.FONT_SIZE.MD}px;
     font-family: ${theme.FONT_FAMILY.BOLD};
   `}
+  text-align: center;
 `;
 
 export const Icon = styled(Feather).attrs<Props>(({ theme, type }) => ({
