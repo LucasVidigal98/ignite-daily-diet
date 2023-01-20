@@ -2,6 +2,7 @@ import { useFonts, Nunito_400Regular, Nunito_700Bold } from '@expo-google-fonts/
 import { ConfirmScreen } from '@screens/CofirmScreen';
 import { DietForm } from '@screens/DietForm';
 import { Home } from '@screens/Home';
+import { MealScreen } from '@screens/MealScreen';
 import { Statistics } from '@screens/Statistics';
 import theme from '@theme/index';
 import { StatusBar, View } from 'react-native';
@@ -17,7 +18,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {fontsLoaded ? <ConfirmScreen /> : <View />}
+      {fontsLoaded ? <MealScreen /> : <View />}
     </ThemeProvider>
   );
 }

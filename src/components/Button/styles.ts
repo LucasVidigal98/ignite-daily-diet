@@ -12,11 +12,12 @@ export const Container = styled(TouchableOpacity) <Props>`
   width: 327px;
   height: 50px;
   border-radius: 6px;
-  padding: 16px 24px 16px 24px;
 
   background-color: ${({ theme, type }) =>
     type === 'PRIMARY' ? theme.COLORS.GRAY_600 : theme.COLORS.GRAY_100
   };
+
+  border: 1px solid ${({ theme }) => theme.COLORS.GRAY_700};
 
   align-items: center;
   justify-content: center;
