@@ -1,9 +1,6 @@
 import { useFonts, Nunito_400Regular, Nunito_700Bold } from '@expo-google-fonts/nunito';
-import { ConfirmScreen } from '@screens/CofirmScreen';
-import { DietForm } from '@screens/DietForm';
-import { Home } from '@screens/Home';
-import { MealScreen } from '@screens/MealScreen';
-import { Statistics } from '@screens/Statistics';
+import { AppRoutes } from '@routes/app.routes';
+import { Routes } from '@routes/index';
 import theme from '@theme/index';
 import { StatusBar, View } from 'react-native';
 import { ThemeProvider } from 'styled-components';
@@ -18,7 +15,7 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      {fontsLoaded ? <MealScreen /> : <View />}
+      {fontsLoaded ? <Routes /> : <View />}
     </ThemeProvider>
   );
 }

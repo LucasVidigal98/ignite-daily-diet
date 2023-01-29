@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components/native";
 import { FontAwesome } from '@expo/vector-icons';
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export type ViewStyleProps = 'PRIMARY' | 'SECONDARY';
 
@@ -7,7 +8,7 @@ type Props = {
   type: ViewStyleProps;
 }
 
-export const Container = styled.View<Props>`
+export const Container = styled(SafeAreaView) <Props>`
   background-color: ${({ theme, type }) =>
     type === 'PRIMARY' ? theme.COLORS.GREEN : theme.COLORS.RED
   };

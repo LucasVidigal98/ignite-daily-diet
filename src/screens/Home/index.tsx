@@ -1,46 +1,45 @@
 
 import { BaseHeader } from "@components/BaseHeader";
-import { Contaiter, Label } from "./styles";
+import { Container, Label } from "./styles";
 import { InfoCard } from "@components/InfoCard";
 import { Button } from "@components/Button";
 import { MealList } from "@components/MealList";
+import { useNavigation } from "@react-navigation/native";
+import { useEffect, useState } from "react";
+import { getItem } from "@storage/getItem";
 
 export function Home() {
-  const mealList = [
-    {
-      title: "12.08.22",
-      data: [
-        { time: '20:00', meal: 'Pizza', id: 0, inside: 55 },
-        { time: '20:00', meal: 'Burger', id: 0, inside: 25 },
-        { time: '20:00', meal: 'Risotto', id: 0, inside: 25 }
-      ],
-    },
-    {
-      title: "11.08.22",
-      data: [
-        { time: '20:00', meal: 'Pizza', id: 0, inside: 25 },
-        { time: '20:00', meal: 'Burger', id: 0, inside: 25 },
-        { time: '20:00', meal: 'Risotto', id: 0, inside: 25 }
-      ],
-    }
-  ];
+  const [mealList, setMealList] = useState([]);
+
+  const navigation = useNavigation();
+
+  async function getItems() {
+    const storagedList = await getItem('mealList');
+
+    setMealList(storagedList);
+  }
+
+  useEffect(() => {
+    getItems();
+  }, []);
 
   return (
-    <Contaiter>
+    <Container>
       <BaseHeader />
 
       <InfoCard
         title="90,86%"
         subtitle="das refeições dentro da dieta"
         type="PRIMARY"
+        onPress={() => navigation.navigate('statistics')}
       />
 
       <Label>Refeições</Label>
 
-      <Button icon="plus" text="Nova refeição" />
+      <Button icon="plus" text="Nova refeição" onPress={() => navigation.navigate('form')} />
 
       <MealList list={mealList} />
 
-    </Contaiter>
+    </Container>
   );
 }

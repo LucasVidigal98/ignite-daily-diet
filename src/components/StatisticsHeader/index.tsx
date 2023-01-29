@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import { BackButton, BackIcon, Container, SubTitle, TextContainer, Title, ViewStyleProps } from "./styles";
 
 type Props = {
@@ -5,9 +6,12 @@ type Props = {
 }
 
 export function StatisticsHeader({ type = 'PRIMARY' }: Props) {
+
+  const navigation = useNavigation();
+
   return (
     <Container type={type}>
-      <BackButton>
+      <BackButton onPress={() => navigation.navigate('home')}>
         <BackIcon name="arrow-left" type={type} />
       </BackButton>
 
